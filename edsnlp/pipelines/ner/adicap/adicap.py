@@ -61,7 +61,9 @@ class Adicap(ContextualMatcher):
             Span.set_extension("value", default=None)
 
     def decode(self, code):
-        exploded = list(code)
+
+        code = code.replace(".", "")
+        exploded = list(code) 
         adicap = AdicapCode(
             code=code,
             sampling_mode=self.decode_dict["D1"]["codes"].get(exploded[0]),
